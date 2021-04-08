@@ -1,4 +1,4 @@
-importScripts("precache-manifest.2378f743064f1135c797c2d7257cbcb5.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("precache-manifest.a47ae152fedec9ea0ca83b034dc68763.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 // set the prefix and suffix of our sw's name
 workbox.core.setCacheNameDetails({
