@@ -1,6 +1,6 @@
 module.exports = {
     publicPath: './',
-    outputDir: 'dist',
+    outputDir: 'doc',
     lintOnSave: true,
     runtimeCompiler: false,
     chainWebpack: config => {
