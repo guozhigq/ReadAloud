@@ -32,9 +32,9 @@ export default {
     // if (/Mobile/.test(navigator.userAgent)) {
     //   alert('Not support mobile device browser')
     // }
-    // speechSynthesis.onvoiceschanged = 
+    speechSynthesis.onvoiceschanged = populateVoiceList()
     
-    this.populateVoiceList()
+    // this.populateVoiceList()
     
   },
   methods: {

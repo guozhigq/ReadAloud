@@ -1,20 +1,36 @@
 {
     "name": "大声朗读",
-    "short_name": "read Aloud",
+    "short_name": "大声朗读",
     "icons": [
       {
-        "src": "./img/icons/android-chrome-192x192.png",
-        "sizes": "192x192",
+        "src": "https://www.pwabuilder.com/Images/assets/newIcons/icon_512.png",
+        "sizes": "512x512",
         "type": "image/png"
       },
       {
-        "src": "./img/icons/android-chrome-512x512.png",
-        "sizes": "512x512",
+        "src": "https://www.pwabuilder.com/Images/assets/newIcons/icon_190.png",
+        "sizes": "190x190",
+        "type": "image/png"
+      },
+      {
+        "src": "https://www.pwabuilder.com/Images/assets/newIcons/icon_120.png",
+        "sizes": "120x120",
+        "type": "image/png"
+      },
+      {
+        "src": "https://www.pwabuilder.com/Images/assets/newIcons/icon_60.png",
+        "sizes": "60x60",
+        "type": "image/png"
+      },
+      {
+        "src": "https://www.pwabuilder.com/Images/assets/newIcons/icon_57.png",
+        "sizes": "57x57",
         "type": "image/png"
       }
     ],
     "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#000000",
-    "theme_color": "#3880FF"
+    "theme_color": "#3880FF",
+    "description": "All the tools you need to build and deploy your Progressive Web Apps."
   }
