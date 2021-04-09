@@ -6,6 +6,8 @@
       <input id="rate" class="flex-fill" type="range" min="0.5" max="1.5" value="1" step="0.01">
       <select id="voiceSelect" class="col-9"></select>
     <button id="play" @click="onClick">播放</button>
+    <a-button type="primary">hello world</a-button>
+    <a-slider id="test" v-model:value="value1" :disabled="disabled" />
   </div>
 </template>
 
@@ -13,23 +15,30 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
+import { Button, Slider } from 'ant-design-vue';
+
 
 var voices; 
 var matches;
 var synth = window.speechSynthesis;
 
-import './script'
+
+// import './script'
+
 if (navigator.serviceWorker) {
     navigator.serviceWorker.register('./sw.js');
 }
 export default {
   name: 'Home',
   components: {
-    // HelloWorld
+    AButton: Button,
+    ASlider: Slider
   },
   data() {
     return {
-      value: ''
+      value: '',
+      value1: 20,
+      disabled: false
     }
   },
   created() {
