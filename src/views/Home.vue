@@ -18,8 +18,10 @@ var voices;
 var matches;
 var synth = window.speechSynthesis;
 
-// import './script'
-
+import './script'
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('./sw.js');
+}
 export default {
   name: 'Home',
   components: {

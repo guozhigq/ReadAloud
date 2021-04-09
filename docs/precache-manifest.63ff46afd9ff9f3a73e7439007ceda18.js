@@ -1,14 +1,14 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "401e2f1783a14c231150187cb36272b0",
+    "revision": "08be31b7f9b6f4ae8ae04dfdbda19758",
     "url": "./public/manifest.json"
   },
   {
-    "revision": "5bbe05cf03d163747e06",
+    "revision": "cac9d75fa3b76c4f277d",
     "url": "css/app.601d2ada.css"
   },
   {
-    "revision": "3363b8c49534ea7003df4990ba2ca333",
+    "revision": "5111a88d68c74be3bdb88ccb320a8157",
     "url": "index.html"
   },
   {
@@ -16,15 +16,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/SpeechSynthesis.js"
   },
   {
-    "revision": "5bbe05cf03d163747e06",
-    "url": "js/app.6bd8559f.js"
+    "revision": "cac9d75fa3b76c4f277d",
+    "url": "js/app.04107494.js"
   },
   {
     "revision": "075b6e4d443f7154dfd2",
     "url": "js/chunk-vendors.68dc3403.js"
   },
   {
-    "revision": "f52141609bef20b76bcde2a9db82d6a1",
+    "revision": "fc85fe29fd417366b6fcbb6e9a3c4f7d",
     "url": "manifest.json"
   },
   {

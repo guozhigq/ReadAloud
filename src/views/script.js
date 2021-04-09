@@ -1,75 +1,24 @@
-if (/Mobile/.test(navigator.userAgent)) {
-    alert('Not support mobile device browser')
-}
-console.log('SpeechSynthesis.js')
-let voices;
-function populateVoiceList() {
-// console.log('populateVoiceList')
-console.log(speechSynthesis.getVoices())
-// voices = speechSynthesis.getVoices()
-//   .filter(c => {
-//     return /^(Microsoft|Google) /.test(c.name)
-//   })
-//   .map(c => {
-//     if (c.name.startsWith('Google ')) {
-//       c.displayName = c.name.replace(/^Google /, '')
-//     } else if (c.name.startsWith('Microsoft')) {
-//       matches = c.name.match(/^Microsoft (.+) Online.*- (.+)/)
-//       c.displayName = `${matches[2]} - ${matches[1]}`
-//     }
-//     return c
-//   })
-//   .sort(function (a, b) {
-//     return a.displayName.localeCompare(b.displayName)
-//   });
 
-// voiceSelect.innerHTML = '';
-// for (i = 0; i < voices.length; i++) {
-//   var option = document.createElement('option');
-//   option.textContent = voices[i].displayName;
-//   voiceSelect.appendChild(option);
-// }
+/* Put code here */
 
+
+
+/* Only register a service worker if it's supported */
+if ('serviceWorker' in navigator) {
+  console.log(123)
+  console.log(navigator)
+  navigator.serviceWorker.register('/service-worker.js');
 }
 
-
-speechSynthesis.onvoiceschanged = populateVoiceList;
-
-function speak() {
-
-var utterThis = new SpeechSynthesisUtterance(inputText.value);
-
-utterThis.onend = function (event) {
-  console.log('SpeechSynthesisUtterance.onend');
-  play.textContent = '► Play'
-}
-
-utterThis.onerror = function (event) {
-  console.error('SpeechSynthesisUtterance.onerror');
-}
-
-utterThis.voice = voices[voiceSelect.selectedIndex];
-utterThis.rate = rate.value;
-
-speechSynthesis.speak(utterThis);
-}
-
-// play.onclick = () => {
-// if (speechSynthesis.speaking) {
-//   speechSynthesis.cancel()
-//   play.textContent = '► Play'
+/**
+ * Warn the page must be served over HTTPS
+ * The `beforeinstallprompt` event won't fire if the page is served over HTTP.
+ * Installability requires a service worker with a fetch event handler, and
+ * if the page isn't served over HTTPS, the service worker won't load.
+ */
+// if (window.location.protocol === 'http:') {
+//   const requireHTTPS = document.getElementById('requireHTTPS');
+//   const link = requireHTTPS.querySelector('a');
+//   link.href = window.location.href.replace('http://', 'https://');
+//   requireHTTPS.classList.remove('hidden');
 // }
-// else {
-//   if (inputText.value === '') {
-//     return;
-//   }
-//   speak()
-//   play.textContent = '■ Stop'
-// }
-// }
-
-// rate.oninput = function () {
-// rateText.textContent = parseFloat(rate.value).toFixed(2);
-// }
-
-// inputText.focus();
