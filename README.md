@@ -1,29 +1,19 @@
 ### 大声朗读pwa应用
 
 <br />
-#### 项目介绍
 
-  基于微软edge浏览器的 **大声朗读** 功能，制作的pwa应用
-  运行后需要在桌面端edge、chrome浏览器中打开，暂不支持手机端浏览器
+#### 介绍
 
-#### Project setup
-```
-npm install
-```
+基于微软edge浏览器的 **大声朗读** 功能制作的pwa应用
+可以在桌面端edge、chrome浏览器中打开，也可安装到电脑桌面，暂不支持手机端浏览器
 
-#### Compiles and hot-reloads for development
-```
-npm run serve
-```
+[主要使用了浏览器提供的SpeechSynthesis接口](https://developer.mozilla.org/zh-CN/docs/Web/API/SpeechSynthesis)
 
-#### Compiles and minifies for production
-```
-npm run build
-```
+#### 什么是pwa
+ 
+> 渐进式网络应用程序（英語：Progressive Web Apps，简称：PWA）是一种普通网页或网站架构起来的网络应用程序，但它可以以传统应用程序或原生移动应用程序形式展示给用户。这种应用程序形态视图将目前最为现代化的浏览器提供的功能与移动设备的体验优势相结合。
 
-#### Lints and fixes files
-```
-npm run lint
-```
+#### 在线预览
 
+项目已经部署在Github Page，[点此查看](https://guozhigq.github.io/ReadAloud/#/)
 

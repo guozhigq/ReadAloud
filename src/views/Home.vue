@@ -48,12 +48,12 @@ export default {
 
   },
   beforeDestroy(){
-    console.log('beforeDestroy')
+    // console.log('beforeDestroy')
   },
   methods: {
     populateVoiceList() {
-      console.log('populateVoiceList')
-      console.log(speechSynthesis)
+      // console.log('populateVoiceList')
+      // console.log(speechSynthesis)
       if(typeof speechSynthesis === 'undefined') {
         return;
       }
@@ -66,7 +66,6 @@ export default {
           resolve(voices)
         },200)
       }).then(voices =>{
-        console.log(voices)
         voices = voices
           .filter(c => {
             return /^(Microsoft|Google) /.test(c.name)

@@ -31,7 +31,7 @@ module.exports = {
         // navigateFallback: '/index.html',
         // runtimeCaching: [
         //     {
-        //     urlPattern: new RegExp('^https://api\.zippopotam\.us'),
+        //     urlPattern: new RegExp('^https://guozhigq.io'),
         //     handler: 'networkFirst',
         //     options: {
         //         networkTimeoutSeconds: 20,

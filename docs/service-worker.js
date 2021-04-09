@@ -1,5 +1,7 @@
-importScripts("precache-manifest.b28b0e2e7d149a6e12d096fce9cd297a.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("precache-manifest.02a039f27eae6baeb8b79821c0cbd36e.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
+import { workbox } from 'workbox-sw';
+console.log(workbox)
 // set the prefix and suffix of our sw's name
 workbox.core.setCacheNameDetails({
     prefix: 'browse-exp',

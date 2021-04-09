@@ -1,3 +1,5 @@
+import { workbox } from 'workbox-sw';
+console.log(workbox)
 // set the prefix and suffix of our sw's name
 workbox.core.setCacheNameDetails({
     prefix: 'browse-exp',
