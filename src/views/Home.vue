@@ -9,12 +9,17 @@
   </div>
 </template>
 
+
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 var voices; 
 var matches;
+var synth = window.speechSynthesis;
+
+// import './script'
+
 export default {
   name: 'Home',
   components: {
@@ -28,40 +33,64 @@ export default {
   created() {
     
   },
+  beforeMount(){
+    
+  },
   mounted() {
     // if (/Mobile/.test(navigator.userAgent)) {
     //   alert('Not support mobile device browser')
     // }
-    speechSynthesis.onvoiceschanged
-    
+    // speechSynthesis.onvoiceschanged = this.populateVoiceList()
     this.populateVoiceList()
     
   },
+  updated(){
+
+  },
+  beforeDestroy(){
+    console.log('beforeDestroy')
+  },
   methods: {
     populateVoiceList() {
-      voices = speechSynthesis.getVoices()
-    .filter(c => {
-      return /^(Microsoft|Google) /.test(c.name)
-    })
-    .map(c => {
-      if (c.name.startsWith('Google ')) {
-        c.displayName = c.name.replace(/^Google /, '')
-      } else if (c.name.startsWith('Microsoft')) {
-        matches = c.name.match(/^Microsoft (.+) Online.*- (.+)/)
-        c.displayName = `${matches[2]} - ${matches[1]}`
+      console.log('populateVoiceList')
+      console.log(speechSynthesis)
+      if(typeof speechSynthesis === 'undefined') {
+        return;
       }
-      return c
-    })
-    .sort(function (a, b) {
-      return a.displayName.localeCompare(b.displayName)
-    });
+      // setTimeout(()=>{
+      //   console.log(speechSynthesis.getVoices())
+      // },200)
+      new Promise((resolve, reject)=> {
+        setTimeout(()=>{
+          voices = speechSynthesis.getVoices()
+          resolve(voices)
+        },200)
+      }).then(voices =>{
+        console.log(voices)
+        voices = voices
+          .filter(c => {
+            return /^(Microsoft|Google) /.test(c.name)
+          })
+          .map(c => {
+            if (c.name.startsWith('Google ')) {
+              c.displayName = c.name.replace(/^Google /, '')
+            } else if (c.name.startsWith('Microsoft')) {
+              matches = c.name.match(/^Microsoft (.+) Online.*- (.+)/)
+              c.displayName = `${matches[2]} - ${matches[1]}`
+            }
+            return c
+          })
+          .sort(function (a, b) {
+            return a.displayName.localeCompare(b.displayName)
+          });
 
-  voiceSelect.innerHTML = '';
-  for (let i = 0; i < voices.length; i++) {
-    var option = document.createElement('option');
-    option.textContent = voices[i].displayName;
-    voiceSelect.appendChild(option);
-  }
+          voiceSelect.innerHTML = '';
+          for (let i = 0; i < voices.length; i++) {
+            var option = document.createElement('option');
+            option.textContent = voices[i].displayName;
+            voiceSelect.appendChild(option);
+          }
+      })
     },
     speak() {
       var utterThis = new SpeechSynthesisUtterance(this.value);

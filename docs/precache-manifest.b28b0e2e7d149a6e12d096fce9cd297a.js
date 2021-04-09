@@ -4,20 +4,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./public/manifest.json"
   },
   {
-    "revision": "cff571e6cdc7e7caeceb",
+    "revision": "93908d304718ef9ffebf",
     "url": "css/app.601d2ada.css"
   },
   {
-    "revision": "81880a364d24f0a49f4d233b60184e21",
+    "revision": "7f50b5b8aed09313222ba2b50878c12e",
     "url": "index.html"
+  },
+  {
+    "revision": "f4deb7f1af9375f909603035ba2c2e38",
+    "url": "js/SpeechSynthesis.js"
   },
   {
     "revision": "ca2131e7a160b5549e83",
     "url": "js/about.d5be1ecf.js"
   },
   {
-    "revision": "cff571e6cdc7e7caeceb",
-    "url": "js/app.03815c79.js"
+    "revision": "93908d304718ef9ffebf",
+    "url": "js/app.cce78836.js"
   },
   {
     "revision": "9bf3899b32c7123a1eca",
