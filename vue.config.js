@@ -27,7 +27,8 @@ module.exports = {
         // workboxPluginMode: 'GenerateSW',
         workboxOptions: {
         // swSrc is required in InjectManifest mode.
-        swSrc: 'src/service-worker.js',
+        // swSrc: 'src/service-worker.js',
+        swSrc: 'src/sw.js',
         // navigateFallback: '/index.html',
         // runtimeCaching: [
         //     {

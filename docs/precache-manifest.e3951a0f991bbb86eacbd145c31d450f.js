@@ -4,11 +4,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./public/manifest.json"
   },
   {
-    "revision": "cac9d75fa3b76c4f277d",
+    "revision": "c47b7f02228e8dfc7f4b",
     "url": "css/app.601d2ada.css"
   },
   {
-    "revision": "5111a88d68c74be3bdb88ccb320a8157",
+    "revision": "46f997c0a84c3b048b65f2e3f0599fbe",
     "url": "index.html"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/SpeechSynthesis.js"
   },
   {
-    "revision": "cac9d75fa3b76c4f277d",
-    "url": "js/app.04107494.js"
+    "revision": "c47b7f02228e8dfc7f4b",
+    "url": "js/app.bba5f4cc.js"
   },
   {
     "revision": "075b6e4d443f7154dfd2",
