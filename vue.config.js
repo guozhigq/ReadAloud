@@ -15,6 +15,27 @@ module.exports = {
     devServer: {
         // 略...
     },
+    css: {
+        loaderOptions: {
+            less: {
+            lessOptions: {
+                // If you are using less-loader@5 please spread the lessOptions to options directly
+                modifyVars: {
+                'primary-color': '#666',
+                'switch-color': '#666',
+                'switch-shadow-color': 'rgba(0,0,0,0.1)',
+
+                'link-color': '#ccc',
+                // 'border-radius-base': '4px',
+                'slider-handle-background-color': '#ccc',
+                'slider-rail-background-color': '#eee',
+                'select-item-selected-bg': '#ccc'
+                },
+                javascriptEnabled: true,
+            },
+            },
+        },
+    },
     pwa: {
         name: '大声朗读',
         themeColor: '#4DBA87',

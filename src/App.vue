@@ -4,25 +4,27 @@
   </div>
 </template>
 
+
 <style lang="scss">
+p{
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #333;
+  margin: 0 auto;
+  max-width: 650px;
+  padding: 50px 20px 50px 20px;
+}
+body{
+  padding: 0;
+  max-width: 650px;
+  min-width: 375px;
+  margin: 0 auto !important;
+  background: #f8f8f8;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
