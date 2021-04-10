@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "15a13f2bd1b64a3c6b960263cf5f7588",
+    "revision": "493da5c7dfd7d83ea068239b985bd17f",
     "url": "./public/manifest.json"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/chunk-vendors.780376a6.js"
   },
   {
-    "revision": "b708025309b6f89212b5094b986368c6",
+    "revision": "dfaeafcf4611dac79e9f8f19d9b2841d",
     "url": "manifest.json"
   },
   {
