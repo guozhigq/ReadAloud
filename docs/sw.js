@@ -1,4 +1,4 @@
-importScripts("precache-manifest.3abc4878cbb551b8e90d0d336ec6a565.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("precache-manifest.48027b4b262ff7a3b18ea2271803314a.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 self.addEventListener('install', function(event) {
     console.log('[ServiceWorker] Install');
@@ -14,6 +14,7 @@ self.addEventListener('install', function(event) {
 });
   
 self.addEventListener('activate', (event) => {
+    console.log('[ServiceWorker] Activate');
     // console.log('[ServiceWorker] Activate');
     // event.waitUntil((async () => {
     //   // Enable navigation preload if it's supported.
@@ -28,6 +29,8 @@ self.addEventListener('activate', (event) => {
 });
   
 self.addEventListener('fetch', function(event) {
+    console.log('[ServiceWorker] Fetch');
+
     // console.log('[Service Worker] Fetch', event.request.url);
     // if (event.request.mode === 'navigate') {
     //   event.respondWith((async () => {

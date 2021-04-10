@@ -16,9 +16,6 @@ import {
   Col,
   Switch
  } from 'ant-design-vue';
-import {
-  RedoOutlined
-} from '@ant-design/icons-vue';
 
 Vue.config.productionTip = false
 Vue.use(Button);

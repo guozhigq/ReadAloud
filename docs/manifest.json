@@ -33,9 +33,9 @@
         "purpose": "any maskable"
       }
     ],
-    "start_url": "index.html",
+    "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#000000",
-    "theme_color": "#3880FF",
+    "theme_color": "#666",
     "description": "All the tools you need to build and deploy your Progressive Web Apps."
   }
