@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "71a84097087cc7018d52e1bec12be98c",
-    "url": "./manifest.webmanifest"
+    "revision": "493da5c7dfd7d83ea068239b985bd17f",
+    "url": "./public/manifest.json"
   },
   {
     "revision": "e54f16220102911a4f35",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "css/global.css"
   },
   {
-    "revision": "9ae2bb525efe9cca2983dceade6e0eea",
+    "revision": "03ab12c9483f105e8e5f4a92a384c23b",
     "url": "index.html"
   },
   {
@@ -29,7 +29,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "dfaeafcf4611dac79e9f8f19d9b2841d",
-    "url": "manifest.webmanifest"
+    "url": "manifest.json"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",

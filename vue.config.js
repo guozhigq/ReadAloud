@@ -42,7 +42,7 @@ module.exports = {
         msTileColor: '#000000',
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'default',
-        manifestPath: './manifest.webmanifest',
+        manifestPath: './public/manifest.json',
         // configure the workbox plugin
         workboxPluginMode: 'InjectManifest',
         // workboxPluginMode: 'GenerateSW',
