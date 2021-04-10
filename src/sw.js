@@ -12,6 +12,7 @@ self.addEventListener('install', function(event) {
 });
   
 self.addEventListener('activate', (event) => {
+    console.log('[ServiceWorker] Activate');
     // console.log('[ServiceWorker] Activate');
     // event.waitUntil((async () => {
     //   // Enable navigation preload if it's supported.
@@ -26,6 +27,8 @@ self.addEventListener('activate', (event) => {
 });
   
 self.addEventListener('fetch', function(event) {
+    console.log('[ServiceWorker] Fetch');
+
     // console.log('[Service Worker] Fetch', event.request.url);
     // if (event.request.mode === 'navigate') {
     //   event.respondWith((async () => {
