@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dc7b7238fa27c0109a360c407a5d012b",
-    "url": "./public/manifest.json"
+    "revision": "71a84097087cc7018d52e1bec12be98c",
+    "url": "./public/manifest.webmanifest"
   },
   {
     "revision": "e54f16220102911a4f35",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "css/global.css"
   },
   {
-    "revision": "03ab12c9483f105e8e5f4a92a384c23b",
+    "revision": "cd96f1c4fe82d40f5c0210e2a61c9e8c",
     "url": "index.html"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/chunk-vendors.780376a6.js"
   },
   {
-    "revision": "3d633e345e038dcadb8c30729a5c15ab",
-    "url": "manifest.json"
+    "revision": "dfaeafcf4611dac79e9f8f19d9b2841d",
+    "url": "manifest.webmanifest"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
