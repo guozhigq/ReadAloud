@@ -38,7 +38,7 @@ module.exports = {
     },
     pwa: {
         name: '大声朗读',
-        themeColor: '#4DBA87',
+        themeColor: '#666',
         msTileColor: '#000000',
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'default',
