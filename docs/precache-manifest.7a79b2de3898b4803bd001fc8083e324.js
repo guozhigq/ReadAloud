@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "71a84097087cc7018d52e1bec12be98c",
-    "url": "./public/manifest.webmanifest"
+    "url": "./manifest.webmanifest"
   },
   {
     "revision": "e54f16220102911a4f35",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "css/global.css"
   },
   {
-    "revision": "cd96f1c4fe82d40f5c0210e2a61c9e8c",
+    "revision": "9ae2bb525efe9cca2983dceade6e0eea",
     "url": "index.html"
   },
   {
