@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import './registerServiceWorker'
-// import './sw'
+import './registerServiceWorker'
+import './sw'
 import '../public/css/global.css'
 // import './service-worker'
 
@@ -32,16 +32,6 @@ Vue.use(Switch)
 Vue.prototype.$message = message;
 
 
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js').then(registration => {
-      console.log('SW registered: ', registration);
-    }).catch(registrationError => {
-      console.log('SW registration failed: ', registrationError);
-    });
-  });
-}
 
 new Vue({
   router,
