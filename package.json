@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "http-server docs"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.1",
@@ -28,8 +29,10 @@
     "babel-plugin-import": "^1.13.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "http-server": "^0.12.3",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "workbox-webpack-plugin": "^6.1.2"
   }
 }

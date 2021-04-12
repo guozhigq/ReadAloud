@@ -19,15 +19,33 @@
     >
     </a-textarea>
 
-    <a-row type="flex" justify="space-between" align="middle" class="pb10 pt30" style="margin-top:30px">
-      <a-col class="flex-wrap">
-        <p class="text-lf fweight-bold letter2 pl5 pb10" style="margin-right:10px;">开启录音(record)</p>
-        <a-switch @change="onChange" />
+    <p class="text-lf pb5 fweight-bold letter2 pl5 mt30">选择语音</p>
+    <a-row type="flex" justify="space-between" align="middle">
+      <a-col :span="18">
+        <a-select
+          @select="onSelect"
+          :default-value="defaultSelect"
+          style="width: 100%"
+          >
+            <a-select-option v-for="(item, index) in voices" :key="index">
+              {{ item.displayName }}
+            </a-select-option>
+        </a-select>
       </a-col>
+      <a-col :span="5">
+        <a-button type="primary" @click="onClick">播放</a-button>
+        <a-button type="primary" @click="test">恢复</a-button>
+        <!-- <a-button type="primary" @click="voiceResume">暂停</a-button> -->
+
+
+      </a-col>
+      <!-- <a-col :span="3">
+        <a-switch default-checked checked-children="录" un-checked-children="" @change="onChange" />
+      </a-col> -->
     </a-row>
 
-    <a-row type="flex" justify="space-between" align="middle" class="pb5 pt10">
-      <a-col :span="20">
+    <a-row type="flex" justify="space-between" align="middle" class="pb5 pt10 mt20">
+      <a-col :span="24">
         <div class="text-lf">
           <span class="fweight-bold letter2 pl5">播放速度(rate)</span>
           <span class="letter2 pl10" style="color:#999;font-size:12px">{{rateValue}} 倍速</span>
@@ -48,7 +66,7 @@
     </a-row>
 
     <a-row type="flex" justify="space-between" align="middle" class="pb5 pt20">
-      <a-col :span="20">
+      <a-col :span="24">
         <div class="text-lf">
           <span class="text-lf fweight-bold letter2 pl5">音调调整(pitch)</span>
           <span class="letter2 pl10" style="color:#999;font-size:12px">当前{{pitchValue}}</span>
@@ -69,26 +87,13 @@
       </a-col>
     </a-row>
 
-    <p class="text-lf pb5 fweight-bold letter2 pl5">选择语音</p>
-    <a-row type="flex" align="middle">
-      <a-col :span="14">
-        <a-select
-          @select="onSelect"
-          :default-value="defaultSelect"
-          style="width: 100%"
-        >
-          <a-select-option v-for="(item, index) in voices" :key="index">
-            {{ item.displayName }}
-          </a-select-option>
-        </a-select>
+    <a-row type="flex" justify="space-between" align="middle" class="pb10">
+      <a-col class="flex-wrap">
+        <p class="text-lf fweight-bold letter2 pl5 pb10" style="margin-right:10px;">开启录音(record)</p>
+        <a-switch @change="onChange" />
       </a-col>
-      <a-col :span="5">
-        <a-button type="primary" @click="voicePlay">播放</a-button>
-      </a-col>
-      <!-- <a-col :span="3">
-        <a-switch default-checked checked-children="录" un-checked-children="" @change="onChange" />
-      </a-col> -->
     </a-row>
+
   </div>
 </template>
 <style scoped>
@@ -108,12 +113,23 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 // import { Button, Slider, Select } from 'ant-design-vue';
 
-
+var synth = window.speechSynthesis;
 var matches;
+var utterThis;
 
-if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("./sw.js");
-}
+// if (navigator.serviceWorker) {
+//   navigator.serviceWorker.register("./sw.js");
+// }
+if ('serviceWorker' in navigator) {
+   window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then(registration => {
+       console.log('SW registered: ', registration);
+     }).catch(registrationError => {
+       console.log('SW registration failed: ', registrationError);
+     });
+   });
+ }
+
 export default {
   name: "Home",
   components: {
@@ -129,8 +145,9 @@ export default {
       disabled: false,
       defaultSelect: "选择朗读语言类型",
       speedSelect: "x1",
-      inputText: "",
-      
+      inputText: "基于微软edge浏览器大声朗读功能开发的pwa应用",
+      selectIdx: 0,
+
       // 语音倍速
       rateValue: 1,
       minRate: 0.5,
@@ -159,6 +176,7 @@ export default {
   beforeMount() {},
   mounted() {
     this.populateVoiceList();
+    this.checkBrowser()
   },
   updated() {},
   beforeDestroy() {},
@@ -172,62 +190,47 @@ export default {
         setTimeout(() => {
           let voices = speechSynthesis.getVoices();
           // console.log(voices)
+          
           resolve(voices);
-        }, 200);
+        }, 0);
       }).then((voices) => {
         this.voices = voices
-          .filter((c) => {
-            return /^(Microsoft|Google) /.test(c.name);
-          })
+          // .filter((c) => {
+          //   return /^(Microsoft|Google) /.test(c.name);
+          // })
           .map((c) => {
             if (c.name.startsWith("Google ")) {
               c.displayName = c.name.replace(/^Google /, "");
             } else if (c.name.startsWith("Microsoft")) {
               matches = c.name.match(/^Microsoft (.+) Online.*- (.+)/);
               c.displayName = `${matches[2]} - ${matches[1]}`;
+            } else {
+              c.displayName = c.name;
             }
             return c;
           })
           .sort(function (a, b) {
             return a.displayName.localeCompare(b.displayName);
           });
-        // voiceSelect.innerHTML = '';
-        // for (let i = 0; i < voices.length; i++) {
-        //   var option = document.createElement('option');
-        //   option.textContent = voices[i].displayName;
-        //   voiceSelect.appendChild(option);
-        // }
       });
     },
-    speak() {
-      let voices = this.voices;
-      var utterThis = new SpeechSynthesisUtterance(this.value);
-
-      utterThis.onend = function (event) {
-        console.log("SpeechSynthesisUtterance.onend");
-        play.textContent = "► Play";
-      };
-
-      utterThis.onerror = function (event) {
-        console.error("SpeechSynthesisUtterance.onerror");
-      };
-
-      utterThis.voice = voices[voiceSelect.selectedIndex];
-      utterThis.rate = rate.value;
-
-      speechSynthesis.speak(utterThis);
+    test(){
+      synth.resume()
+      this.$message.success('继续播放');
     },
     onClick() {
-      if (speechSynthesis.speaking) {
-        speechSynthesis.cancel();
-        play.textContent = "► Play";
-      } else {
-        if (this.value === "") {
+      
+      // if (synth.speaking) {
+      //   this.$message.warning('已暂停');
+      //   synth.pause(); 
+      //   console.log(synth.paused)
+      //   return;
+      // } else {
+        if (!this.inputText && this.inputText.length == 0) {
           return;
         }
         this.speak();
-        play.textContent = "■ Stop";
-      }
+      // }
     },
     onInput(e) {
       this.inputText = e.target.value;
@@ -236,7 +239,8 @@ export default {
     onSelect(index) {
       this.selectIdx = index;
     },
-    voicePlay() {
+    speak() {
+      
       let { 
         voices, 
         selectIdx, 
@@ -244,27 +248,20 @@ export default {
         rateValue,
         pitchValue 
       } = this;
-      if (!inputText && inputText.length == 0) {
-        alert("warning");
-        return;
-      }
-      var utterThis = new SpeechSynthesisUtterance(inputText);
-
+      utterThis = new SpeechSynthesisUtterance(inputText);
       utterThis.onend = function (event) {
-        console.log("SpeechSynthesisUtterance.onend");
+      console.log("SpeechSynthesisUtterance.onend");
+        
         // play.textContent = '► Play'
       };
 
       utterThis.onerror = function (event) {
         console.error("SpeechSynthesisUtterance.onerror");
       };
-
       utterThis.voice = voices[selectIdx]; // 设置说话的声音
-
-      utterThis.rate = rateValue; // 设置说话的速度
-      console.log(pitchValue)
       utterThis.pitch = pitchValue; // 设置音调高低
-      speechSynthesis.speak(utterThis);
+      utterThis.rate = rateValue; // 设置说话的速度
+      synth.speak(utterThis);
     },
     onChange(value) {
       console.log("change: ", value);
@@ -280,6 +277,9 @@ export default {
     onPitchSlider(e) {
       this.pitchValue = e
     },
+    checkBrowser() {
+      // console.log('userAgent: '+window.navigator.userAgent)
+    }
   },
 };
 </script>

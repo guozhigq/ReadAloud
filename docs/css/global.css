@@ -40,6 +40,15 @@
 .pl10{
     padding-left: 10px;
 }
+.mt10{
+    margin-top: 10px;
+}
+.mt20{
+    margin-top: 20px;
+}
+.mt30{
+    margin-top: 30px;
+}
 .text-lf{
     text-align: left;
 }
