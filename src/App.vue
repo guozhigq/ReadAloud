@@ -21,8 +21,8 @@ p{
 }
 body{
   padding: 0;
-  max-width: 650px;
-  min-width: 375px;
+  // max-width: 650px;
+  // min-width: 375px;
   margin: 0 auto !important;
   background: #f8f8f8;
 }

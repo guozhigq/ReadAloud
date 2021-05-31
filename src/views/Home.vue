@@ -34,7 +34,7 @@
       </a-col>
       <a-col :span="5">
         <a-button type="primary" @click="onClick">播放</a-button>
-        <a-button type="primary" @click="test">恢复</a-button>
+        <!-- <a-button type="primary" @click="test">恢复</a-button> -->
         <!-- <a-button type="primary" @click="voiceResume">暂停</a-button> -->
 
 
