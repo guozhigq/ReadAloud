@@ -93,7 +93,7 @@
         <a-switch @change="onChange" />
       </a-col>
     </a-row>
-
+    <p class="link" @click="push">Github中查看</p>
   </div>
 </template>
 <style scoped>
@@ -105,6 +105,12 @@
 .ant-slider-handle {
   background-color: #999 !important;
   border: solid 4px #333 !important;
+}
+.link{
+  font-size: 14px;
+  margin-top:40px;
+  color: #999;
+  letter-spacing: 1px;
 }
 </style>
 
@@ -279,6 +285,9 @@ export default {
     },
     checkBrowser() {
       // console.log('userAgent: '+window.navigator.userAgent)
+    },
+    push() {
+      window.location.href="https://github.com/guozhigq/ReadAloud"
     }
   },
 };

@@ -1,4 +1,4 @@
-importScripts("precache-manifest.31872095e446bc857b1c13839737f3aa.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("precache-manifest.72938c9b83337403eb8938712d9e1dbb.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 self.addEventListener('install', function(event) {
     console.log('[ServiceWorker] Install');
