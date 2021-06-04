@@ -304,20 +304,30 @@ export default {
     },
     // 新建 MediaRecorder对象
     initRecorder() {
+      const _this = this
       var constraints = window.constraints = {
-        audio: false,
-        video: true
+        audio: true,
+        video: false
       };
       navigator.mediaDevices.getUserMedia(constraints)
       .then(function(stream) {
         /* use the stream */
+        _this.recorderFn(stream)
         console.log(stream)
+
       })
       .catch(function(err) {
         console.log(err)
         /* handle the error */
       });
-    }
+    },
+    // 创建录音实例
+    recorderFn(stream) {
+      let mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.start();
+      console.log('录音中...')
+
+    },
   },
 };
 </script>
