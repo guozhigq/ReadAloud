@@ -90,7 +90,7 @@
     <a-row type="flex" justify="space-between" align="middle" class="pb10">
       <a-col class="flex-wrap">
         <p class="text-lf fweight-bold letter2 pl5 pb10" style="margin-right:10px;">开启录音(record)</p>
-        <a-switch @change="onChange" />
+        <a-switch :checked="recordStatus" @change="onChange" />
       </a-col>
     </a-row>
     <p class="link" @click="push">Github中查看</p>
@@ -151,7 +151,7 @@ export default {
       disabled: false,
       defaultSelect: "选择朗读语言类型",
       speedSelect: "x1",
-      inputText: "基于微软edge浏览器大声朗读功能开发的pwa应用",
+      inputText: "",
       selectIdx: 0,
 
       // 语音倍速
@@ -176,13 +176,16 @@ export default {
         0: "",
         2: "",
       },
+      recordStatus: false
     };
   },
   created() {},
   beforeMount() {},
   mounted() {
     this.populateVoiceList();
-    this.checkBrowser()
+    this.checkBrowser();
+    
+    
   },
   updated() {},
   beforeDestroy() {},
@@ -275,6 +278,11 @@ export default {
     },
     onChange(value) {
       console.log("change: ", value);
+      if(!this.recordStatus){
+        // 请求录音授权
+        this.initRecorder()
+      }
+      this.recordStatus = !this.recordStatus
     },
     onAfterChange(value) {
       console.log("afterChange: ", value);
@@ -290,8 +298,25 @@ export default {
     checkBrowser() {
       // console.log('userAgent: '+window.navigator.userAgent)
     },
+    // 跳转至 github仓库地址
     push() {
       window.location.href="https://github.com/guozhigq/ReadAloud"
+    },
+    // 新建 MediaRecorder对象
+    initRecorder() {
+      var constraints = window.constraints = {
+        audio: false,
+        video: true
+      };
+      navigator.mediaDevices.getUserMedia(constraints)
+      .then(function(stream) {
+        /* use the stream */
+        console.log(stream)
+      })
+      .catch(function(err) {
+        console.log(err)
+        /* handle the error */
+      });
     }
   },
 };
