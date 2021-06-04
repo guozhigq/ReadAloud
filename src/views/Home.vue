@@ -124,7 +124,9 @@ var matches;
 var utterThis;
 
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("./sw.js");
+  // navigator.serviceWorker.register("./sw.js");
+  navigator.serviceWorker.register("./service-worker.js");
+
 }
 // if ('serviceWorker' in navigator) {
 //    window.addEventListener('load', () => {

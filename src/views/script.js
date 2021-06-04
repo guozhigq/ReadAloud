@@ -7,8 +7,8 @@
 if ('serviceWorker' in navigator) {
     console.log(123)
     console.log(navigator)
-    // navigator.serviceWorker.register('/service-worker.js');
-    navigator.serviceWorker.register('/sw.js');
+    navigator.serviceWorker.register('/service-worker.js');
+    // navigator.serviceWorker.register('/sw.js');
 
   }
   
