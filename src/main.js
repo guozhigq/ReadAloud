@@ -26,6 +26,7 @@ Vue.use(Input);
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Switch)
+
 // Vue.use(RedoOutlined)
 
 

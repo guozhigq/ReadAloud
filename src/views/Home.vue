@@ -301,6 +301,7 @@ export default {
     push() {
       window.location.href="https://github.com/guozhigq/ReadAloud"
     },
+
     // 新建 MediaRecorder对象
     initRecorder() {
       const _this = this
@@ -317,6 +318,8 @@ export default {
       })
       .catch(function(err) {
         console.log(err)
+        _this.recordStatus = false
+        _this.$message.warning('🙅🏻‍♀️ 拒绝录音权限')
         /* handle the error */
       });
     },
