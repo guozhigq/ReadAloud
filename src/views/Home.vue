@@ -127,7 +127,7 @@ var utterThis;
 if (navigator.serviceWorker) {
   navigator.serviceWorker.register('../sw.js')
   .then(resolve =>{
-    console.log('⛳️ -> sw注册成功');
+    console.log('⛳️ -> sw注册成功!');
   }, reject => {
     console.log(reject)
   })
