@@ -220,7 +220,7 @@ export default {
             if (c.name.startsWith("Google ")) {
               c.displayName = c.name.replace(/^Google /, "");
             } else if (c.name.startsWith("Microsoft")) {
-              console.log(c.name)
+           
               matches = c.name.match(/^Microsoft (.+) Online.*- (.+)/);
               // c.displayName = `${matches[2]} - ${matches[1]}`;
               c.displayName = c.name
