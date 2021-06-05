@@ -123,9 +123,14 @@ var synth = window.speechSynthesis;
 var matches;
 var utterThis;
 
+
 if (navigator.serviceWorker) {
-  // navigator.serviceWorker.register("./sw.js");
-  navigator.serviceWorker.register("./service-worker.js");
+  navigator.serviceWorker.register('../sw.js')
+  .then(resolve =>{
+    console.log('⛳️ -> sw注册成功');
+  }, reject => {
+    console.log(reject)
+  })
 
 }
 // if ('serviceWorker' in navigator) {
@@ -234,18 +239,10 @@ export default {
       this.$message.success('继续播放');
     },
     onClick() {
-      
-      // if (synth.speaking) {
-      //   this.$message.warning('已暂停');
-      //   synth.pause(); 
-      //   console.log(synth.paused)
-      //   return;
-      // } else {
-        if (!this.inputText && this.inputText.length == 0) {
-          return;
-        }
-        this.speak();
-      // }
+      if (!this.inputText && this.inputText.length == 0) {
+        return;
+      }
+      this.speak();
     },
     onInput(e) {
       this.inputText = e.target.value;

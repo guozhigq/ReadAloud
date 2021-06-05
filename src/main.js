@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
-import './registerServiceWorker'
-import './sw'
 import '../public/css/global.css'
+
+// import './registerServiceWorker'
+// import './sw.js'
 // import './service-worker'
 
 import router from './router'
