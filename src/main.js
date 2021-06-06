@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import '../public/css/global.css'
 
-// import './registerServiceWorker'
+import './registerServiceWorker'
 // import './sw.js'
 // import './service-worker'
 
